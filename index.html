@@ -84,8 +84,8 @@
     <div class="container">
       <div class="container has-text-centered">
         <h1 class="title is-1 publication-title">
-          Hierarchical LLM-Guided Manipulation with Multimodal Action-Mask Policies
-      </h1>
+  Hierarchical LLM-Guided Manipulation with <br> Multimodal Learning and Action-Mask Policies
+</h1>
         <div class="is-size-5 publication-authors" style="display: flex; justify-content: center; gap: 30px;">
 
       
@@ -149,14 +149,16 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-           Hierarchical policies that integrate high-level planning with low-level control have achieved strong performance in robotic manipulation, yet remain limited. 
-	We propose a hierarchical framework that combines a two-stage task planner with a multimodal low-level action-mask policy.
-	At a high level, a Vision-Language Model (VLM) perceives objects and scene information from observations, which a Large Language Model(LLM) then reasons over together with a task library and human instructions to produce a textual task plan, mitigating modality bias.
-	At the low level, we employ an asymmetric encoder, SigLIP2 with DoRA for text and ResNets for multi-view vision, together with spatial and bidirectional cross-attention modules to produce fused features for an Action Chunking Transformer (ACT) policy.
-	We introduce a novel action-mask loss for ACT, which jointly predicts actions and their validity masks. 
-	By explicitly supervising termination, the policy learns not only fine-grained control but also when to stop, enabling real-time sub-task completion detection and robust switching across long-horizon tasks without additional inference overhead.
-	Experiments on weighing and multi-object manipulation scenarios demonstrate improved planning accuracy, execution success, and efficiency, with ablations confirming each component's contribution. 
-	Finally, deployment on a different robotic platform in a new scenario validates generalization.
+ Hierarchical policies that integrate high-level planning with low-level control have shown strong performance in robotic manipulation, but remain limited. 
+    We present a hierarchical framework that combines a two-stage task planner with a multimodal low-level action-mask policy. 
+    At the high level, a Vision-Language Model (VLM) first perceives object and scene information from observations, and a Large Language Model (LLM) then reasons over this information together with a task library and human instructions to generate a textual task plan. 
+    This two-stage design mitigates modality bias.
+    At the low level, we employ an asymmetric encoder, using SigLIP2 with Weight-Decomposed Low-Rank Adaptation (DoRA) for text and ResNets for multi-view vision. 
+    We introduce a shared Temperature-Scaled Spatial Attention module to enhance multi-view features and a Bidirectional Cross-Attention module to fuse language-vision features for an Action Chunking Transformer (ACT) policy. 
+    For multi-task switching, we propose a novel explicit action-mask policy that jointly predicts actions and their validity masks. 
+    By explicitly supervising termination, the policy learns not only fine-grained control but also when to stop, enabling real-time sub-task completion detection and robust switching across long-horizon tasks without additional inference overhead. 
+    Experiments on weighing and multi-object manipulation scenarios demonstrate planning accuracy, execution success, and efficiency, with ablations confirming the contribution of each component. 
+    Finally, deployment on a different robotic platform in a new scenario validates generalization.
           </p>
         </div>
       </div>
@@ -168,43 +170,21 @@
 
 <hr/>
 
-<!-- <section class="hero teaser">
-  <div class="hero-body" style="background: linear-gradient(135deg, #56CCF2, #2F80ED); padding: 20px 0;">
-    <div class="container is-max-desktop">
-      <h2 class="title is-3" style="color: #FFFFFF; text-align: left; margin: 0;">Autonomous Skills with Tactile Information</h2>
-    </div>
-  </div>
-</section> -->
-<section class="hero teaser">
-  <div class="hero-body" style="background: linear-gradient(135deg, #A8E6CF, #56C596); padding: 20px 0;">
-    <div class="container is-max-desktop" style="text-align: center;">
-      <h2 class="title is-3" style="color: #FFFFFF; margin: 0; font-weight: bold;">Approach Overview</h2>
-    </div>
-  </div>
-  <div class="container is-max-desktop" style="text-align: left; margin-top: 20px;">
-    <img src="./static/images/overview.jpg" alt="Approach Overview" 
-         style="max-width: 90%; height: auto; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
-    <p style="margin-top: 10px; font-size: 0.95em; color: #444; text-align: left;">
-      Fig. 1. Approach Overview: We sample observations from the collected dataset. Each observation at time t includes top-view, left-arm, and right-arm camera visual images, audio recorded over the past L seconds before t, and the robot's joint states at time t.
-      For the visual input, the three camera observations are encoded by three separate ResNet, each producing feature representations shown as stacked blue feature maps, which are then tokenized into vision tokens, depicted as hollow blue squares.
-      For the L-second audio waveform, we first downsample it from 48kHz to 16kHz, and then convert it into Mel spectrograms. 
-      The mel spectrograms are encoded with an AST model initialized from AudioSet pre-trained weights. During training, the AST backbone is frozen, and only the DoRA modules are fine-tuned on our task-specific data, producing audio feature tokens shown as hollow orange squares.
-      The extracted visual and audio features are fed into a Transformer-based bidirectional cross-attention mechanism, which enables both modalities to adaptively attend to each other's informative regions. 
-      The resulting fused features are represented as blue and orange solid squares.
-      These encoded and cross-attention-enhanced features are then combined with the current robot joint values and are input into the ACT architecture's policy.
-      The ACT policy outputs the predicted next m timesteps of robot joint actions and computes the reconstruction loss between the predicted actions and the ground-truth joint values.
-    </p>
-  </div>
-</section>
-
 
 <div style="margin-bottom: 40px;"></div>
 
 <section class="hero teaser">
   <div class="hero-body" style="background: linear-gradient(135deg, #56CCF2, #2F80ED); padding: 20px 0;">
     <div class="container is-max-desktop" style="text-align: center;">
-      <h2 class="title is-3" style="color: #FFFFFF; margin: 0;">Autonomous Bimanual Skills with Audio Information</h2>
-      <p style="color: #FFFFFF; margin-top: 10px; font-size: 1.1em;">🔊 Please turn on your speaker for full experience</p>
+      <h2 class="title is-3" style="color: #FFFFFF; margin: 0;">
+        Human-Language-Guided Multimodal Autonomous Bimanual Multi-Task Robotic Manipulation
+      </h2>
+      <p style="color: #E0E0E0; font-size: 1em; margin-top: 6px;">
+        Demos include weighing, multi-object, and drawer manipulation scenarios
+      </p>
+      <p style="color: #E0E0E0; font-size: 1em; margin-top: 6px;">
+        Covering human instructions of varying difficulty levels
+      </p>
     </div>
   </div>
 </section>
@@ -213,67 +193,17 @@
 <section class="hero teaser">
   <div class="hero-body">
     <div class="container is-max-desktop">
-	  <div style="height: 20px;"></div> <!-- 间隔 -->
-	  <h3 class="subtitle is-4" style="font-weight: bold;" >1. Alarm Shutting</h3> <!-- 新添加的子标题 -->
+      <div style="height: 20px;"></div> <!-- 间隔 -->
+
       <div style="display: flex; flex-wrap: wrap; justify-content: center;">
         <div style="display: flex; justify-content: center; align-items: center; flex-direction: column; margin-bottom: 20px;">
-          <video autoplay controls muted loop playsinline style="width: 100%; max-width: 600px;">
-            <source src="./static/videos/alarm/alarm_shutting.mp4" type="video/mp4">
+          <video autoplay controls muted loop playsinline 
+                 style="width: 100%; max-width: 90%; height: auto; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+            <source src="./static/videos/LLMsAloha_1-compress.mp4" type="video/mp4">
           </video>
-          <h3 class="has-text-centered" style="font-weight: bold; margin-top: 12px;">Our Method (Audio + Vision)</h3>
-          <!-- <h3 class="has-text-centered" style="font-weight: bold; color: #FF0000;">Our Method</h3> -->
         </div>
+      </div>
 
-
-          <div style="width: 100%; margin-bottom: 20px;">
-          <h3 class="subtitle is-4" style="font-weight: bold;" >2. Box Locking</h3> <!-- 新添加的子标题 -->
-          <div style="display: flex; flex-wrap: wrap; justify-content: center;">
-            <div style="display: flex; justify-content: center; align-items: center; flex-direction: column; margin-bottom: 20px;">
-              <video autoplay controls muted loop playsinline style="width: 100%; max-width: 600px;">
-                <source src="./static/videos/boxlock/box_lock_4s.mp4" type="video/mp4">
-              </video>
-              <h3 class="has-text-centered" style="font-weight: bold; margin-top: 12px;">Our Method (Audio + Vision)</h3>
-              <!-- <h3 class="has-text-centered" style="font-weight: bold; color: #FF0000;">Our Method</h3> -->
-            </div>
-
-
-
-
-            
-            
-          <div style="width: 100%; margin-bottom: 20px;">
-            <h3 class="subtitle is-4" style="font-weight: bold;" >3. Stapler Checking</h3> <!-- 新添加的子标题 -->
-            <div style="display: flex; flex-wrap: wrap; justify-content: center;">
-              <div style="display: flex; justify-content: center; align-items: center; flex-direction: column; margin-bottom: 20px;">
-                <video autoplay controls muted loop playsinline style="width: 100%; max-width: 600px;">
-                  <source src="./static/videos/stapler/with_stapler.mp4" type="video/mp4">
-                </video>
-                <h3 class="has-text-centered" style="font-weight: bold; margin-top: 12px;">Our Method (Audio + Vision) With Staple</h3>
-                <!-- <h3 class="has-text-centered" style="font-weight: bold; color: #FF0000;">Our Method</h3> -->
-              </div>
-
-            <div style="display: flex; flex-wrap: wrap; justify-content: center;">
-              <div style="display: flex; justify-content: center; align-items: center; flex-direction: column; margin-bottom: 20px;">
-                <video autoplay controls muted loop playsinline style="width: 100%; max-width: 600px;">
-                  <!-- <video autoplay controls muted loop playsinline style="width: 100vw; max-width: 100%;"> -->
-                  <source src="./static/videos/stapler/no_stapler.mp4" type="video/mp4">
-                </video>
-                <h3 class="has-text-centered" style="font-weight: bold; margin-top: 12px;">
-                  Our Method (Audio + Vision) No Staple</h3>
-                <!-- <h3 class="has-text-centered" style="font-weight: bold; color: #FF0000;">Our Method</h3> -->
-              </div>
-
-  </div>
-</section>
-
-<hr/>
-
-
-
-<section class="hero teaser">
-  <div class="hero-body" style="background: linear-gradient(135deg, #a18cd1,#a18cd1); padding: 20px 0;">
-    <div class="container is-max-desktop" style="text-align: center;">
-      <h2 class="title is-3" style="color: #FFFFFF; margin: 0;">Robustness</h2>
     </div>
   </div>
 </section>
@@ -282,94 +212,55 @@
 
 
 <section class="hero teaser">
-  <div class="hero-body">
-    <div class="container is-max-desktop">
-	  <div style="height: 20px;"></div> <!-- 间隔 -->
-	  <h3 class="subtitle is-4" style="font-weight: bold;" >Closed-loop Human Interaction</h3> <!-- 新添加的子标题 -->
-      <div style="display: flex; flex-wrap: wrap; justify-content: center;">
-        <div style="display: flex; justify-content: center; align-items: center; flex-direction: column; margin-bottom: 20px;">
-          <video autoplay controls muted loop playsinline style="width: 100%; max-width: 600px;">
-            <source src="./static/videos/alarm/Tworandom.mp4" type="video/mp4">
-          </video>
-          <h3 class="has-text-centered" style="font-weight: bold; margin-top: 12px;">Our Method (Audio + Vision)</h3>
-          <!-- <h3 class="has-text-centered" style="font-weight: bold; color: #FF0000;">Our Method</h3> -->
-        </div>
-
-          <div style="width: 100%; margin-bottom: 20px;">
-          <h3 class="subtitle is-4" style="font-weight: bold;" >Audio-visual Noise</h3> <!-- 新添加的子标题 -->
-          <div style="display: flex; flex-wrap: wrap; justify-content: center;">
-            <div style="display: flex; justify-content: center; align-items: center; flex-direction: column; margin-bottom: 20px;">
-              <video autoplay controls muted loop playsinline style="width: 100%; max-width: 600px;">
-                <source src="./static/videos/alarm/keyboard.mp4" type="video/mp4">
-              </video>
-              <h3 class="has-text-centered" style="font-weight: bold; margin-top: 12px;">Our Method (Audio + Vision)</h3>
-              <!-- <h3 class="has-text-centered" style="font-weight: bold; color: #FF0000;">Our Method</h3> -->
-            </div>
-
-          <div style="width: 100%; margin-bottom: 20px;">
-            <h3 class="subtitle is-4" style="font-weight: bold;" >Zero-shot</h3> <!-- 新添加的子标题 -->
-            <div style="display: flex; flex-wrap: wrap; justify-content: center;">
-              <div style="display: flex; justify-content: center; align-items: center; flex-direction: column; margin-bottom: 20px;">
-                <video autoplay controls muted loop playsinline style="width: 100%; max-width: 600px;">
-                  <source src="./static/videos/stapler/with_stapler_lowsound_new.mp4" type="video/mp4">
-                </video>
-                <h3 class="has-text-centered" style="font-weight: bold; margin-top: 12px;">Our Method (Audio + Vision) With New Staple</h3>
-                <!-- <h3 class="has-text-centered" style="font-weight: bold; color: #FF0000;">Our Method</h3> -->
-              </div>
-
-
-  </div>
-</section>
-
-
-<section class="hero teaser">
-  <div class="hero-body" style="background: linear-gradient(135deg, #FF9A9E, #FAD0C4); padding: 20px 0;">
+  <div class="hero-body" style="background: linear-gradient(135deg, #A8E6CF, #56C596); padding: 20px 0;">
     <div class="container is-max-desktop" style="text-align: center;">
-      <h2 class="title is-3" style="color: #FFFFFF; margin: 0;">Representative Failure Cases</h2>
+      <h2 class="title is-3" style="color: #FFFFFF; margin: 0; font-weight: bold;">Approach Overview</h2>
     </div>
   </div>
-</section>
 
-<section class="hero teaser">
-  <div class="hero-body">
-    <div class="container is-max-desktop">
-	  <div style="height: 20px;"></div> <!-- 间隔 -->
-
-
-            <div style="display: flex; flex-wrap: wrap; justify-content: center;">
-              <div style="display: flex; justify-content: center; align-items: center; flex-direction: column; margin-bottom: 20px;">
-                <video autoplay controls muted loop playsinline style="width: 100%; max-width: 600px;">
-                  <source src="./static/videos/boxlock/box_lock_2s.mp4" type="video/mp4">
-                </video>
-                <h3 class="has-text-centered" style="font-weight: bold; margin-top: 12px;">Our Method with 2s Audio Length for Box Locking <span style="display: block;"></span> (Robot arm re-presses the already locked box)</h3>
-                <!-- <h3 class="has-text-centered" style="font-weight: bold; color: #FF0000;">Our Method</h3> -->
-              </div>
-
-
-              <div style="width: 100%; margin-bottom: 20px;">
-
-    <div style="display: flex; flex-wrap: wrap; justify-content: center;">
-              <div style="display: flex; justify-content: center; align-items: center; flex-direction: column; margin-bottom: 20px;">
-                <video autoplay controls muted loop playsinline style="width: 100%; max-width: 600px;">
-                  <source src="./static/videos/alarm/contact_audio.mp4" type="video/mp4">
-                </video>
-                <h3 class="has-text-centered" style="font-weight: bold; margin-top: 12px;">Contact Audio Method <span style="display: block;"></span> (When the alarm rings, the contact microphone cannot capture the object's emitted sound, and the robot fails to respond.)</h3>
-                <!-- <h3 class="has-text-centered" style="font-weight: bold; color: #FF0000;">Our Method</h3> -->
-              </div>
-          </div>
-
-              
-            <div style="display: flex; flex-wrap: wrap; justify-content: center;">
-              <div style="display: flex; justify-content: center; align-items: center; flex-direction: column; margin-bottom: 20px;">
-                <video autoplay controls muted loop playsinline style="width: 100%; max-width: 600px;">
-                  <source src="./static/videos/stapler/stapler_4cams_act.mp4" type="video/mp4">
-                </video>
-                <h3 class="has-text-centered" style="font-weight: bold; margin-top: 12px;">ACT with only-Vision for Stapler Checking <span style="display: block;"></span> (The policy failed to learn either of the two branches and fell into the same failure pattern.)</h3>
-                <!-- <h3 class="has-text-centered" style="font-weight: bold; color: #FF0000;">Our Method</h3> -->
-              </div>
-          </div>
+<div class="container is-max-desktop" style="margin-top: 20px;">
+  <div style="text-align: center;">
+    <img src="./static/images/main_fig.png" alt="Approach Overview" 
+         style="max-width: 90%; height: auto; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
   </div>
+  <p style="margin-top: 12px; font-size: 0.95em; color: #444; line-height: 1.6; text-align: justify;">
+Fig. 1. Overview of the proposed hierarchical framework for language-guided, multimodal, multi-task robotic manipulation.
+    The framework operates in three processes:
+    (I) Instruction Recognition, where natural language commands are transcribed using a Whisper-based voice-to-text module; 
+    (II) High-Level Task Planning, where a VLM first perceives the scene to extract objects and information, and then an LLM, conditioned on the human instruction, the VLM output, and a library of predefined skills, decomposes the command into a sequence of sub-tasks;
+    (III) Low-Level Action Generation and Sub-task Switching, where an ACT-based multimodal language-vision policy executes each sub-task by leveraging textual input, visual observations, and robot joint states, while a Task Completion Checker detects termination and triggers the transition to the next sub-task.  
+    The right shows two examples of decomposed human instructions and their sub-task executions.
+  </p>
+</div>
+
+
+
+<div class="container is-max-desktop" style="margin-top: 20px;">
+  <div style="text-align: center;">
+    <img src="./static/images/high_plan.jpg" alt="Two-stage high-level task planner" 
+         style="max-width: 90%; height: auto; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+  </div>
+  <p style="margin-top: 12px; font-size: 0.95em; color: #444; line-height: 1.6; text-align: justify;">
+    Fig. 2. Two-stage high-level planner: the VLM parses the scene, and the LLM uses it with the human instruction and sub-task library to generate sub-tasks paln list with a brief reply.
+  </p>
+</div>
+
+<div class="container is-max-desktop" style="margin-top: 20px;">
+  <div style="text-align: center;">
+    <img src="./static/images/llms_act.jpg" alt="llmsact" 
+         style="max-width: 90%; height: auto; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+  </div>
+  <p style="margin-top: 12px; font-size: 0.95em; color: #444; line-height: 1.6; text-align: justify;">
+Fig. 3. Architecture of the Low-Level Action Planner. For a sub-task (e.g., “open the balance”), we adopt an asymmetric encoder: the language input is encoded by a frozen SigLIP2 augmented with trainable DoRA adapters, while multi-view images at time t are processed by a fine-tuned ResNet. The resulting features are fused via (i) a temperature-scaled spatial attention for visual enhancement and (ii) a bidirectional cross-attention for language-vision integration. These fused features, together with the robot joint state, are passed to an ACT-based policy, whose output is normalized and augmented with two additional linear heads predicting the next k timesteps of joint actions and their corresponding validity masks. A Task-Completion Checker monitors the masks and terminates the current sub-task if more than n consecutive invalid actions are detected, switching to the next sub-task.
+  </p>
+</div>
+
+
 </section>
+
+
+
+
 <hr/>
 <script type="text/javascript" src="./static/slick/slick.min.js"></script>
 </body>
