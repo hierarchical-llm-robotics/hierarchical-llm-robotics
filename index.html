@@ -84,7 +84,7 @@
     <div class="container">
       <div class="container has-text-centered">
         <h1 class="title is-1 publication-title">
-  Hierarchical LLM-Guided Manipulation with <br> Multimodal Learning and Action-Mask Policies
+          Hierarchical LLM-Guided Multi-Task Manipulation <br> with Multimodal Learning and Action-Mask Policy
 </h1>
         <div class="is-size-5 publication-authors" style="display: flex; justify-content: center; gap: 30px;">
 
@@ -149,14 +149,14 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
- Hierarchical policies that integrate high-level planning with low-level control have shown strong performance in robotic manipulation, but remain limited. 
-    We present a hierarchical framework that combines a two-stage task planner with a multimodal low-level action-mask policy. 
+Hierarchical policies that integrate high-level planning with low-level control have shown strong performance in robotic manipulation, but remain limited. 
+    We present a hierarchical framework that combines a two-stage task planner with a low-level action planner that integrates multimodal inputs and an explicit action-mask policy.
     At the high level, a Vision-Language Model (VLM) first perceives object and scene information from observations, and a Large Language Model (LLM) then reasons over this information together with a task library and human instructions to generate a textual task plan. 
     This two-stage design mitigates modality bias.
     At the low level, we employ an asymmetric encoder, using SigLIP2 with Weight-Decomposed Low-Rank Adaptation (DoRA) for text and ResNets for multi-view vision. 
-    We introduce a shared Temperature-Scaled Spatial Attention module to enhance multi-view features and a Bidirectional Cross-Attention module to fuse language-vision features for an Action Chunking Transformer (ACT) policy. 
+    We introduce a shared Temperature-Scaled Spatial Attention module to enhance multi-view features and a Bidirectional Cross-Attention module to fuse language-vision features for Action Chunking Transformer (ACT) policy. 
     For multi-task switching, we propose a novel explicit action-mask policy that jointly predicts actions and their validity masks. 
-    By explicitly supervising termination, the policy learns not only fine-grained control but also when to stop, enabling real-time sub-task completion detection and robust switching across long-horizon tasks without additional inference overhead. 
+    The policy learns not only fine-grained control but also when to stop, enabling real-time sub-task completion detection and robust switching across long-horizon tasks without additional inference overhead. 
     Experiments on weighing and multi-object manipulation scenarios demonstrate planning accuracy, execution success, and efficiency, with ablations confirming the contribution of each component. 
     Finally, deployment on a different robotic platform in a new scenario validates generalization.
           </p>
@@ -199,7 +199,7 @@
         <div style="display: flex; justify-content: center; align-items: center; flex-direction: column; margin-bottom: 20px;">
           <video autoplay controls muted loop playsinline 
                  style="width: 100%; max-width: 90%; height: auto; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
-            <source src="./static/videos/LLMsAloha_1-compress.mp4" type="video/mp4">
+            <source src="./static/videos/hierarchical-llm-robotics-demos.mp4" type="video/mp4">
           </video>
         </div>
       </div>
@@ -207,8 +207,6 @@
     </div>
   </div>
 </section>
-
-
 
 
 <section class="hero teaser">
