@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>hierarchical-llm-robotics</title>
+  <title>ld-mtm-am</title>
 
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-EDF010G6PN"></script>
@@ -84,7 +84,7 @@
     <div class="container">
       <div class="container has-text-centered">
         <h1 class="title is-1 publication-title">
-          Hierarchical LLM-Guided Multi-Task Manipulation <br> with Multimodal Learning and Action-Mask Policy
+          Language-Driven Multi-Task Manipulation with <br> Action-Mask Enhanced Multi-modal Learning
 </h1>
         <div class="is-size-5 publication-authors" style="display: flex; justify-content: center; gap: 30px;">
 
@@ -95,10 +95,6 @@
     </div>
   </div>
 </section>
-
-
-
-
 
 
 <div class="column has-text-centered">
@@ -118,7 +114,7 @@
 
     <!-- ML Code Link -->
     <span class="link-block">
-      <a href="https://anonymous.4open.science/r/hierarchical-llm-robotics-0238/README.md"
+      <a href="https://anonymous.4open.science/r/ld-mtm-6000/README.md"
          class="external-link button is-normal is-rounded is-dark">
         <span class="icon">
           <i class="fab fa-github"></i>
@@ -149,16 +145,18 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-Hierarchical policies that integrate high-level planning with low-level control have shown performance in robotic manipulation, but remain limited. 
-    We present a hierarchical framework that combines a two-stage task planner with a low-level action planner that integrates multimodal inputs and an explicit action-mask policy.
-    At the high level, a Vision-Language Model (VLM) first perceives object and scene information from observations, and a Large Language Model (LLM) then reasons over this information together with a task library and human instructions to generate a textual task plan. 
+For long-horizon multi-task robotic manipulation, hierarchical approaches provide
+    an effective way to combine high-level task planning with low-level sub-task execution.
+    We propose a framework that integrates a two-stage task planner with a multimodal low-level action planner equipped with an explicit action-mask policy.
+    At high level, a Vision-Language Model (VLM) first perceives object and scene information from observations, and a Large Language Model (LLM) then reasons over this information together with a task library and human instruction to generate a textual task plan. 
     This two-stage design mitigates modality bias.
-    At the low level, we employ an asymmetric encoder, using SigLIP2 with Weight-Decomposed Low-Rank Adaptation (DoRA) for text and ResNets for multi-view vision. 
-    We introduce a shared Temperature-Scaled Spatial Attention module to enhance multi-view features and a Bidirectional Cross-Attention module to fuse language-vision features for Action Chunking Transformer (ACT) policy. 
+    At low level, an asymmetric multimodal encoder, SigLIP2 with Weight-Decomposed
+    Low-Rank Adaptation (DoRA) for text and multi-view ResNets for vision, feeds
+    into an ACT-based policy enhanced by Temperature-Scaled Spatial Attention and
+    Bidirectional Cross-Attention for language-vision fusion. 
     For multi-task switching, we propose a novel explicit action-mask policy that jointly predicts actions and their validity masks. 
-    The policy learns not only fine-grained control but also when to stop, enabling real-time sub-task completion detection and robust switching across long-horizon tasks without additional inference overhead. 
-    Experiments on weighing and multi-object manipulation scenarios demonstrate planning accuracy, execution success, and efficiency, with ablations confirming the contribution of each component. 
-    Finally, deployment on a different robotic platform in a new scenario validates generalization.
+    The policy learns not only precise control but also when to stop, enabling real-time sub-task completion detection and robust switching across long-horizon tasks without additional inference overhead. 
+    Experiments on weighing and multi-object manipulation scenarios demonstrate planning accuracy, execution success, and efficiency, with ablations verifying the contribution of each module. Deployment on a distinct dual-arm robotic platform in a new scenario validates generalization. 
           </p>
         </div>
       </div>
@@ -199,7 +197,7 @@ Hierarchical policies that integrate high-level planning with low-level control 
         <div style="display: flex; justify-content: center; align-items: center; flex-direction: column; margin-bottom: 20px;">
           <video autoplay controls muted loop playsinline 
                  style="width: 100%; max-width: 90%; height: auto; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
-            <source src="./static/videos/hierarchical-llm-robotics-demos.mp4" type="video/mp4">
+            <source src="./static/videos/demos.mp4" type="video/mp4">
           </video>
         </div>
       </div>
